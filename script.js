@@ -52,10 +52,9 @@ var config = {
         console.log(dateAdded);
         
     
-    $("tbody").append("<tr><td>" +
-    childSnapshot.val().train + "<td>" +
-    childSnapshot.val().destination + "</td>"+"<td>" +
-    childSnapshot.val().frequency + "</td>")
+    $("tbody").append(`<tr><td>${childSnapshot.val().train}<td>
+    ${childSnapshot.val().destination}</td><td>
+    ${childSnapshot.val().frequency}</td>`)
 
 }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
