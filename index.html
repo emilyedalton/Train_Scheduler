@@ -8,9 +8,35 @@
     <title>Train Scheduler</title>
 </head>
 <body>
+<h1>Train Schedule</h1>
+<table>
+<tbody>
+<th>Train Name</th>
+<th>Destination</th>
+<th>Frequency</th>
+<th>Next Arrival</th>
+</tbody>
+</table>
+Train Name:<br>
+<input type="text" name="trainname" value="" id= "trainName-input">
+<br>
+Destination:<br>
+<input type="text" name="destination" value="" id = "destination-input">
+<br>
+First Train Time (military):<br>
+<input type="text" name="firstTrainTime" value="" id = "firstTrain-input">
+<br>
+Frequency(min):<br>
+<input type="text" name="frequency" value=""id = "frequency-input">
+<br>
+<br>
+<input type="submit" value="Submit"id ="submit">
+</form> 
+
+
 <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
+<!--javascript -->
     <script type="text/javascript" src="/Train_Scheduler/script.js"></script>
 
 </body>
