@@ -81,12 +81,12 @@ dataRef.ref().on("child_added", function (childSnapshot) {
 console.log("THIS IS THE FREQUENCY" + " " + frequency);
 
     timeRemainder = diffTime % frequency;
-    //   console.log ("this is the remainder" + " " + timeRemainder);
-// var tMinutesTillTrain = frequency - timeRemainder;
-//     console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+  console.log ("this is the remainder" + " " + timeRemainder);
+var tMinutesTillTrain = frequency - timeRemainder;
+   console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 
-//     nextArrival = moment().add(tMinutesTillTrain, "minutes");
-//     console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm a"));
+  nextArrival = moment().add(tMinutesTillTrain, "minutes");
+ console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm a"));
 
 
 
