@@ -30,6 +30,13 @@ var firsttrainConverted = "";
 // var dateAdded = "";
 // var minutesAway = "";
 // var currentTime= "";
+function reset (){
+    train = $("#trainName-input").val (" ");
+    destination = $("#destination-input").val (" ");
+    firstTrain = $("#firstTrain-input").val (" ");
+    frequency = $("#frequency-input").val (" ");
+
+}
 // Capture Button Click
 $("#submit").on("click", function (event) {
     event.preventDefault();
@@ -56,6 +63,7 @@ $("#submit").on("click", function (event) {
         //dateAdded: firebase.database.ServerValue.TIMESTAMP
 
     });
+    reset();
 
 });
 dataRef.ref().on("child_added", function (childSnapshot) {
@@ -71,8 +79,6 @@ dataRef.ref().on("child_added", function (childSnapshot) {
     // var diffTime = 0;
     var timeRemainder = 0;
     var nextArrival = 0;
-    // var dbfrequency = childSnapshot.val().frequency;
-//    var firstleaveTime = childSnapshot.val().firstTrain;
     //difference between now and the time the first train leaves
     console.log("CONVERTED" + " " + firsttrainConverted);
    var diffTime = moment().diff(moment(firsttrainConverted), "minutes");
@@ -86,7 +92,7 @@ var tMinutesTillTrain = frequency - timeRemainder;
    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 
   nextArrival = moment().add(tMinutesTillTrain, "minutes");
- console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm a"));
+ console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm A"));
 
 
 
@@ -95,11 +101,14 @@ var tMinutesTillTrain = frequency - timeRemainder;
     // console.log(moment().format("X"));
 
 
-    // $("tbody").append(`<tr><td>${childSnapshot.val().train}<td>
-    // ${childSnapshot.val().destination}</td><td>
-    // ${childSnapshot.val().frequency}</td><td>
-    // ${nextTrain}</td>`)
+    $("tbody").append(`<tr><td>${childSnapshot.val().train}<td>
+     ${childSnapshot.val().destination}</td><td>
+    ${childSnapshot.val().frequency}</td><td>
+    ${nextArrival}</td><td>
+    ${tMinutesTillTrain}</td>`)
 
 }, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
+
+    
 });
