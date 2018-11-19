@@ -26,10 +26,10 @@ var firstTrain = "";
 var minutesAway = 0;
 // the time the next train arrives
 var nextArrival = 0;
+//train time converted to unix
 var firsttrainConverted = "";
-// var dateAdded = "";
-// var minutesAway = "";
-// var currentTime= "";
+
+//reset function clears out the input fields after user submits
 function reset (){
     train = $("#trainName-input").val (" ");
     destination = $("#destination-input").val (" ");
@@ -40,13 +40,10 @@ function reset (){
 $("#submit").on("click", function (event) {
     event.preventDefault();
 
-    // YOUR TASK!!!
-    // Code in the logic for storing and retrieving the most recent user.
-    // Don't forget to provide initial data to your Firebase database.
+    // Stores user's info on train intput into the database
     train = $("#trainName-input").val().trim();
     destination = $("#destination-input").val().trim();
     firstTrain = moment($("#firstTrain-input").val().trim(), "HH:mm").subtract(10, "years").format("X");
-    // firstTrain = $("#firstTrain-input").val().trim()
     frequency = $("#frequency-input").val().trim();
     // firsttrainConverted = moment(firstTrain, "HH:mm").subtract(1, "years").format("X");;
 
@@ -61,8 +58,6 @@ $("#submit").on("click", function (event) {
         destination: destination,
         frequency: frequency,
         firstTrain: firstTrain
-        // arrival: arrival
-        //dateAdded: firebase.database.ServerValue.TIMESTAMP
 
     });
     reset();
@@ -73,11 +68,9 @@ dataRef.ref().on("child_added", function (childSnapshot) {
     console.log("This is the name of the first train" + " " + childSnapshot.val().train);
     console.log("This is where the train is going" + " " + childSnapshot.val().destination);
     console.log("this is how often the train runs" + " " + childSnapshot.val().frequency);
-    console.log(childSnapshot.val().arrival);
     console.log("this is the time the first train leaves" + " " + childSnapshot.val().firstTrain);
     
 
-    // var diffTime = 0;
     var timeRemainder = 0;
     var nextArrival = 0;
     //difference between now and the time the first train leaves

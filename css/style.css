@@ -1,0 +1,18 @@
+table{
+    text-align: center;
+border: solid 2px blue;
+width: 75%;}
+.form 
+{display:flex;
+align-content: flex-start;
+flex-direction: column;
+width: 75%;
+border: solid 2px red;}
+
+.wrapper{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
