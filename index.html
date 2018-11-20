@@ -6,11 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Train Scheduler</title>
+    <link rel="stylesheet" href="/Train_Scheduler/css/reset.css">
     <link rel="stylesheet" href="/Train_Scheduler/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Questrial" rel="stylesheet">
 </head>
 <body>
-<div class = "wrapper">
+<div id = "headerDiv">
 <h1>Train Schedule</h1>
+<img src="/Train_Scheduler/images/Train-Transparent-Background.png" height="150px" width = "200px">
+</div><!-- end header Div -->
+
+<div class = "wrapper">
+
 <table>
 <tbody>
 <th>Train Name</th>
@@ -23,16 +30,16 @@
 </table>
 <div class = "form">
 
-Train Name:<br>
+<p class = "label">Train Name:</p>
 <input type="text" name="trainname" value="" id= "trainName-input">
 <br>
-Destination:<br>
+<p class = "label">Destination:</p>
 <input type="text" name="destination" value="" id = "destination-input">
 <br>
-First Train Time (military):<br>
+<p class = "label">First Train Time (military):</p>
 <input type="text" name="firstTrainTime" value="" id = "firstTrain-input">
 <br>
-Frequency(min):<br>
+<p class = "label">Frequency(min):</p>
 <input type="text" name="frequency" value=""id = "frequency-input">
 <br>
 <br>

@@ -1,14 +1,29 @@
+body{font-family: 'Questrial', sans-serif;
+}
+th{
+    font-weight:bold;
+    padding: 1em;
+
+ }
+h1{    font-size: 3em;
+}
+ input, .label{
+    width: 70%;
+    margin: auto;
+    padding: .5em;
+}
 table{
-    text-align: center;
-border: solid 2px blue;
+text-align: center;
 width: 75%;
 }
-.form 
-{display:flex;
-align-content: flex-start;
+.form {
+display:flex;
+align-content: center;
 flex-direction: column;
 width: 75%;
-border: solid 2px red;}
+padding-top: 2em;
+}
+
 
 .wrapper{
     
@@ -16,4 +31,23 @@ border: solid 2px red;}
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+#submit{
+    width: 20%;
+    color: white ;
+   text-transform: uppercase;
+   background:gray;
+   padding: 20px;
+   border-radius: 5px;
+   display: inline-block;
+   border: none;
+}
+#headerDiv{
+    font-family: 'Pacifico', cursive;
+    background-color: white;
+    height: 10em;
+    color: #ff6ec7;
+    padding-top:2em;
+    text-align:center;
 }

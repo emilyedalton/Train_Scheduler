@@ -29,6 +29,11 @@ var nextArrival = 0;
 //train time converted to unix
 var firsttrainConverted = "";
 
+var currentTime = "";
+
+
+
+
 //reset function clears out the input fields after user submits
 function reset() {
     train = $("#trainName-input").val(" ");
@@ -45,8 +50,6 @@ $("#submit").on("click", function (event) {
     destination = $("#destination-input").val().trim();
     firstTrain = moment($("#firstTrain-input").val().trim(), "HH:mm").subtract(10, "years").format("X");
     frequency = $("#frequency-input").val().trim();
-    // firsttrainConverted = moment(firstTrain, "HH:mm").subtract(1, "years").format("X");;
-
     currentTime = moment();
     console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 
