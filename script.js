@@ -30,11 +30,11 @@ var nextArrival = 0;
 var firsttrainConverted = "";
 
 //reset function clears out the input fields after user submits
-function reset (){
-    train = $("#trainName-input").val (" ");
-    destination = $("#destination-input").val (" ");
-    firstTrain = $("#firstTrain-input").val (" ");
-    frequency = $("#frequency-input").val (" ");
+function reset() {
+    train = $("#trainName-input").val(" ");
+    destination = $("#destination-input").val(" ");
+    firstTrain = $("#firstTrain-input").val(" ");
+    frequency = $("#frequency-input").val(" ");
 }
 // Capture Button Click
 $("#submit").on("click", function (event) {
@@ -64,45 +64,44 @@ $("#submit").on("click", function (event) {
 
 });
 dataRef.ref().on("child_added", function (childSnapshot) {
-    // Log everything that's coming out of snapshot
+    // Making new variables for values pulled from DB. Trying out "let".Log everything that's coming out of snapshot
+    let dbTrain = childSnapshot.val().train;
+    let dbDestination = childSnapshot.val().destination;
+    let dbFrequency = childSnapshot.val().frequency;
+    let dbfirsttrain = childSnapshot.val().firstTrain;
     console.log("This is the name of the first train" + " " + childSnapshot.val().train);
     console.log("This is where the train is going" + " " + childSnapshot.val().destination);
     console.log("this is how often the train runs" + " " + childSnapshot.val().frequency);
     console.log("this is the time the first train leaves" + " " + childSnapshot.val().firstTrain);
-    
 
-    var timeRemainder = 0;
-    var nextArrival = 0;
+
     //difference between now and the time the first train leaves
     console.log("CONVERTED" + " " + firsttrainConverted);
-   var diffTime = moment().diff(moment.unix(firstTrain), "minutes");
+    let diffTime = moment().diff(moment.unix(dbfirsttrain), "minutes");
     console.log("DIFFERENCE IN TIME: " + diffTime);
 
-console.log("THIS IS THE FREQUENCY" + " " + frequency);
+    console.log("THIS IS THE FREQUENCY" + " " + frequency);
 
-    timeRemainder = diffTime % frequency;
-  console.log ("this is the remainder" + " " + timeRemainder);
-var tMinutesTillTrain = frequency - timeRemainder;
-   console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+    let timeRemainder = diffTime % dbFrequency;
+    console.log("this is the remainder" + " " + timeRemainder);
+    let tMinutesTillTrain = dbFrequency - timeRemainder;
+    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 
-  nextArrival = moment().add(tMinutesTillTrain, "minutes").format("hh:mm A");
- console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm A"));
-
-
-
-    
-    // // Test for correct times and info
-    // console.log(moment().format("X"));
+    let nextArrival = moment().add(tMinutesTillTrain, "minutes").format("hh:mm A");
+    console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm A"));
 
 
-    $("tbody").append(`<tr><td>${childSnapshot.val().train}<td>
-     ${childSnapshot.val().destination}</td><td>
-    ${childSnapshot.val().frequency}</td><td>
+
+
+
+    $("tbody").append(`<tr><td>${dbTrain}<td>
+    ${dbDestination}</td><td>
+    ${dbFrequency}</td><td>
     ${nextArrival}</td><td>
     ${tMinutesTillTrain}</td>`)
 
 }, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
 
-    
+
 });

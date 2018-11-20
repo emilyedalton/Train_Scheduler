@@ -1,7 +1,8 @@
 table{
     text-align: center;
 border: solid 2px blue;
-width: 75%;}
+width: 75%;
+}
 .form 
 {display:flex;
 align-content: flex-start;
